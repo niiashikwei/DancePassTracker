@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">DancePassTracker</string>
+    <string name="facebook_app_id">231386824047852</string>
+    <string name="fb_login_protocol_scheme">fb231386824047852</string>
 </resources>
