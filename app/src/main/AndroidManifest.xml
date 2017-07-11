@@ -39,6 +39,7 @@
         </activity>
 
         <activity android:name=".FBLoginActivity" />
+        <activity android:name=".DancePasses" />
     </application>
 
 </manifest>

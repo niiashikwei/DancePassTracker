@@ -2,10 +2,10 @@ package com.ideaz.dancepasstracker;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
@@ -26,6 +26,8 @@ public class FBLoginActivity extends AppCompatActivity {
             @Override
             public void onSuccess(LoginResult loginResult) {
                 Toast.makeText(getApplicationContext(), "Success!", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(getApplicationContext(), DancePasses.class));
+                finish();
             }
 
             @Override
@@ -36,9 +38,17 @@ public class FBLoginActivity extends AppCompatActivity {
             @Override
             public void onError(FacebookException error) {
                 Toast.makeText(getApplicationContext(), "Error!", Toast.LENGTH_SHORT).show();
-                Toast.makeText(getApplicationContext(), error.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+
+
+        AccessToken accessToken = AccessToken.getCurrentAccessToken();
+
+        if (accessToken != null) {
+            Intent intent = new Intent(getApplicationContext(), DancePasses.class);
+            startActivity(intent);
+            finish();
+        }
     }
 
     @Override
